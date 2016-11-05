@@ -1,15 +1,37 @@
 <!doctype html>
 <html>
   <head>
-    <title>Request VHost</title>
+    <title>Engine rewrite</title>
     <style type="text/css">
+
       body {
         font-family: verdana, sans-serif;
         font-size: 10pt;
-        min-width: 200px;
+        min-width: 350px;
         overflow-x: hidden;
       }
+      input[type=text] {
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none;
+        padding: 3px 0px 3px 3px;
+        margin: 5px 1px 3px 0px;
+        border: 1px solid #DDDDDD;
+      }
 
+      input[type=text]:focus {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        padding: 3px 0px 3px 3px;
+        margin: 5px 1px 3px 0px;
+        border: 1px solid rgba(81, 203, 238, 1);
+      }
+      input, label {
+        width: 98%;
+        padding:0.2em;
+        margin:0.2em
+      }
       img {
         margin: 5px;
         border: 2px solid black;
@@ -17,14 +39,78 @@
         width: 75px;
         height: 75px;
       }
+
+      h2 {
+        color: #777;
+      }
+
+      h4 {
+        color: #999;
+      }
+
+      .tgl {
+        display: none;
+      }
+      .tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+        box-sizing: border-box;
+      }
+      .tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+        background: none;
+      }
+      .tgl + .tgl-btn {
+        outline: 0;
+        display: block;
+        width: 4em;
+        height: 2em;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+      }
+      .tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+        position: relative;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+      }
+      .tgl + .tgl-btn:after {
+        left: 0;
+      }
+      .tgl + .tgl-btn:before {
+        display: none;
+      }
+      .tgl:checked + .tgl-btn:after {
+        left: 50%;
+      }
+
+      .tgl-light + .tgl-btn {
+        background: #f0f0f0;
+        border-radius: 2em;
+        padding: 2px;
+        transition: all .4s ease;
+      }
+      .tgl-light + .tgl-btn:after {
+        border-radius: 50%;
+        background: #fff;
+        transition: all .2s ease;
+      }
+      .tgl-light:checked + .tgl-btn {
+        background: #9FD6AE;
+      }
+
+
     </style>
     <script type="text/javascript" src="popup.js"></script>
   </head>
   <body>
-    VHost Domain:<br/>
-    <input type="text" id="vhost_domain" placeholder="dev.yourhost.com"/><br/>
-    VHost IP:<br/>
-    <input type="text" id="vhost_ip" placeholder="127.0.0.1"/><br/>
-    Enable: <input type="checkbox" id="vhost_enable"/>
+
+    <span>Enabed</span>
+    <input type="checkbox" id="vhost_enable" class="tgl tgl-light" />
+    <label for="vhost_enable" class="tgl-btn"></label>
+
+    <span>Target</span>
+    <input type="text" id="vhost_ip"/>
+    <label for="vhost_ip"></label>
+
   </body>
 </html>

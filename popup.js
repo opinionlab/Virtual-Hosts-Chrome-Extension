@@ -5,14 +5,14 @@ var domain,
 
 var loadHandler = function() {
   // assign elements to variables for future references
-  domain = document.querySelector('#vhost_domain');
+  //domain = document.querySelector('#vhost_domain');
   ip = document.querySelector('#vhost_ip');
   enabled = document.querySelector('#vhost_enable');
   background = chrome.extension.getBackgroundPage();
 
   // add a listener to each input and set the value from the background
-  domain.addEventListener("keyup", updateHandler, false);
-  domain.value = background.settings.domain;
+  //domain.addEventListener("keyup", updateHandler, false);
+  //domain.value = background.settings.domain;
 
   ip.addEventListener("keyup", updateHandler, false);
   ip.value = background.settings.ip;
@@ -30,13 +30,13 @@ var updateIcons = function() {
 var updateHandler = function(e)
 {
   var settings = {
-    'domain': domain.value,
+    //'domain': domain.value,
     'ip': ip.value,
     'enabled': enabled.checked
   };
 
   // set the background settings
-  background.settings.domain = settings.domain;
+  //background.settings.domain = settings.domain;
   background.settings.ip = settings.ip;
   background.settings.enabled = settings.enabled;
 
