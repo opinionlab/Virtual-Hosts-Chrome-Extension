@@ -1,4 +1,4 @@
-# engine-interceptor
+# collections-interceptor
 
 This is a chrome extension that allows one to re-route a comment card to a new url.
 
